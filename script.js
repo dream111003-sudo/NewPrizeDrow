@@ -111,40 +111,58 @@ function showWinners(list) {
         width: 90%;
         max-width: 800px;
         margin: 20px auto;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        border-radius: 12px;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        border-radius: 15px;
         overflow: hidden;
+        background: #fff;
       }
       table.winner-table th, table.winner-table td {
-        padding: 12px 15px;
+        padding: 14px 18px;
         text-align: center;
       }
       table.winner-table thead th {
-        background: #4a90e2;
-        color: white;
-        font-weight: 600;
-        font-size: 1.1em;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.15em;
+        letter-spacing: 1.5px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
       }
       table.winner-table tbody tr {
-        background: #f9faff;
-        transition: background-color 0.3s;
+        background: #fff8f0;
+        transition: background-color 0.25s ease;
       }
       table.winner-table tbody tr:nth-child(even) {
-        background: #e9f0ff;
+        background: #fff1e6;
       }
       table.winner-table tbody tr:hover {
-        background: #c8dbff;
+        background: #ffd1dc;
       }
       table.winner-table tbody td img {
         max-width: 80px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        border-radius: 12px;
+        border: 3px solid #ff9a9e;
+        box-shadow: 0 4px 8px rgba(255,154,158,0.3);
+        transition: transform 0.3s ease;
+      }
+      table.winner-table tbody td img:hover {
+        transform: scale(1.1);
+        border-color: #fad0c4;
+        box-shadow: 0 6px 12px rgba(250,208,196,0.5);
+      }
+      h2 {
+        text-align: center;
+        color: #ff6f91;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-weight: 900;
+        text-shadow: 2px 2px 4px #ffd1dc;
+        margin-top: 30px;
       }
     </style>
   `;
 
-  let html = style + "<h2 style='text-align:center; color:#4a90e2; font-family:\"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;'>当選者一覧</h2>";
+  let html = style + "<h2>当選者一覧</h2>";
   html += "<table class='winner-table'>";
   html += "<thead><tr><th>ID</th><th>氏名</th><th>景品</th><th>画像</th></tr></thead><tbody>";
   list.forEach(w => {
@@ -159,7 +177,9 @@ function showWinners(list) {
   document.getElementById("mainArea").innerHTML = html;
 }
 
+
   setInterval(updateStatus, 5000);
   updateStatus();
 });
+
 
