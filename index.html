@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>抽選サイト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>抽選会</h1>
+
+  <div id="status">当選者数: <span id="winnersCount">0</span> / 残り: <span id="remainingCount">0</span></div>
+
+  <button id="drawButton">抽選する</button>
+
+  <div id="result"></div>
+
+  <!-- 当選BGM -->
+  <audio id="bgm" src="BGM.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

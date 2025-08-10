@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+#status {
+  margin: 10px;
+  font-size: 1.1em;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+button {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  cursor: pointer;
+}
