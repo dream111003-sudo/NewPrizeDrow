@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>抽選サイト</title>
+  <meta charset="UTF-8">
+  <title>🎉 豪華抽選会 🎉</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>抽選会</h1>
+  <header>
+    <h1>🎉 豪華抽選会 🎉</h1>
+    <div id="statusArea"></div>
+  </header>
 
-  <div id="status">当選者数: <span id="winnersCount">0</span> / 残り: <span id="remainingCount">0</span></div>
+  <main id="mainArea">
+    <button id="drawBtn">抽選開始</button>
+    <div id="result"></div>
+    <div id="prizeImage"></div>
+  </main>
 
-  <button id="drawButton">抽選する</button>
-
-  <div id="result"></div>
-
-  <!-- 当選BGM -->
+  <!-- BGM -->
   <audio id="bgm" src="BGM.mp3" preload="auto"></audio>
+
+  <!-- 紙吹雪用Canvas -->
+  <canvas id="confettiCanvas"></canvas>
 
   <script src="script.js"></script>
 </body>
