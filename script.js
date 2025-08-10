@@ -102,21 +102,64 @@ prizeImageDiv.innerHTML = `<img src="/prizes/${data.prizeImage}" alt="${data.pri
   }
 
   // 当選者一覧表示
-  function showWinners(list) {
-    let html = "<h2>当選者一覧</h2><table border='1' style='margin:auto;'>";
-    html += "<tr><th>ID</th><th>氏名</th><th>景品</th><th>画像</th></tr>";
-    list.forEach(w => {
-      html += `<tr>
-        <td>${w.id}</td>
-        <td>${w.name}</td>
-        <td>${w.prize}</td>
-        <td><img src="prizes/${w.prizeImage}" style="max-width:80px"></td>
-      </tr>`;
-    });
-    html += "</table>";
-    document.getElementById("mainArea").innerHTML = html;
-  }
+function showWinners(list) {
+  const style = `
+    <style>
+      table.winner-table {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 90%;
+        max-width: 800px;
+        margin: 20px auto;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      table.winner-table th, table.winner-table td {
+        padding: 12px 15px;
+        text-align: center;
+      }
+      table.winner-table thead th {
+        background: #4a90e2;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1em;
+      }
+      table.winner-table tbody tr {
+        background: #f9faff;
+        transition: background-color 0.3s;
+      }
+      table.winner-table tbody tr:nth-child(even) {
+        background: #e9f0ff;
+      }
+      table.winner-table tbody tr:hover {
+        background: #c8dbff;
+      }
+      table.winner-table tbody td img {
+        max-width: 80px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      }
+    </style>
+  `;
+
+  let html = style + "<h2 style='text-align:center; color:#4a90e2; font-family:\"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;'>当選者一覧</h2>";
+  html += "<table class='winner-table'>";
+  html += "<thead><tr><th>ID</th><th>氏名</th><th>景品</th><th>画像</th></tr></thead><tbody>";
+  list.forEach(w => {
+    html += `<tr>
+      <td>${w.id}</td>
+      <td>${w.name}</td>
+      <td>${w.prize}</td>
+      <td><img src="prizes/${w.prizeImage}" alt="${w.prize}"></td>
+    </tr>`;
+  });
+  html += "</tbody></table>";
+  document.getElementById("mainArea").innerHTML = html;
+}
 
   setInterval(updateStatus, 5000);
   updateStatus();
 });
+
